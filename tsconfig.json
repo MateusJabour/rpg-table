@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "es2016",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "*": ["*"]
+    },
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "esnext.asynciterable",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": ["./client/**/*", "./server/**/*"],
+  "exclude": ["./node_modules/**/*"]
+}

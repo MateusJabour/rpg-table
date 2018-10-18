@@ -1,0 +1,6 @@
+node_modules
+build
+coverage
+app/types/graphql.ts
+app/types/graphql/*-types.ts
+**/*.graphql.d.ts

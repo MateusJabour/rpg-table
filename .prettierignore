@@ -1,0 +1,13 @@
+package.json
+node_modules
+build
+coverage
+playground
+.sewing-kit
+*.graphql.d.ts
+*.md
+*.svg
+vendor/*
+app/locales/ja.json
+app/types/graphql.ts
+mockEditorGraphqlData.json
