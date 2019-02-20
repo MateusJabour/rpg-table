@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-family: Helvetica;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100%;
+}
+
+.second-row {
+  display: flex;
+}
