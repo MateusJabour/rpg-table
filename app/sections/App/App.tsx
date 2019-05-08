@@ -25,14 +25,21 @@ const App: FunctionComponent<Props> = function() {
           onDexChange={setDexterity}
           constitution={constitution}
           onConChange={setConstitution}
-          wisdom={wisdom}
-          onWisChange={setWisdom}
           intelligence={intelligence}
           onIntChange={setIntelligence}
+          wisdom={wisdom}
+          onWisChange={setWisdom}
           charisma={charisma}
           onChaChange={setCharisma}
         />
-        <SkillList />
+        <SkillList
+          strength={strength}
+          dexterity={dexterity}
+          constitution={constitution}
+          wisdom={wisdom}
+          intelligence={intelligence}
+          charisma={charisma}
+        />
       </div>
     </div>
   );

@@ -25,3 +25,7 @@ const modifierTable: {[index: number]: number} = {
 export function modifier(number: number): number {
   return modifierTable[number];
 }
+
+export function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
