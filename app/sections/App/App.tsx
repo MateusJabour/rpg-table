@@ -7,12 +7,12 @@ interface Props {
 }
 
 const App: FunctionComponent<Props> = function() {
-  const [strength, setStrength] = useState(0);
-  const [dexterity, setDexterity] = useState(0);
-  const [constitution, setConstitution] = useState(0);
-  const [wisdom, setWisdom] = useState(0);
-  const [intelligence, setIntelligence] = useState(0);
-  const [charisma, setCharisma] = useState(0);
+  const [strength, setStrength] = useAttributeState(0);
+  const [dexterity, setDexterity] = useAttributeState(0);
+  const [constitution, setConstitution] = useAttributeState(0);
+  const [wisdom, setWisdom] = useAttributeState(0);
+  const [intelligence, setIntelligence] = useAttributeState(0);
+  const [charisma, setCharisma] = useAttributeState(0);
 
   return (
     <div className="app">
@@ -20,46 +20,34 @@ const App: FunctionComponent<Props> = function() {
       <div className="second-row">
         <AbilitiesTable
           strength={strength}
-          onStrChange={onStrChange}
+          onStrChange={setStrength}
           dexterity={dexterity}
-          onDexChange={onDexChange}
+          onDexChange={setDexterity}
           constitution={constitution}
-          onConChange={onConChange}
+          onConChange={setConstitution}
           wisdom={wisdom}
-          onWisChange={onWisChange}
+          onWisChange={setWisdom}
           intelligence={intelligence}
-          onIntChange={onIntChange}
+          onIntChange={setIntelligence}
           charisma={charisma}
-          onChaChange={onChaChange}
+          onChaChange={setCharisma}
         />
         <SkillList />
       </div>
     </div>
   );
-
-  function onStrChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setStrength(+event.currentTarget.value);
-  }
-
-  function onDexChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setDexterity(+event.currentTarget.value);
-  }
-
-  function onConChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setConstitution(+event.currentTarget.value);
-  }
-
-  function onWisChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setWisdom(+event.currentTarget.value);
-  }
-
-  function onIntChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setIntelligence(+event.currentTarget.value);
-  }
-
-  function onChaChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setCharisma(+event.currentTarget.value);
-  }
 };
+
+function useAttributeState(
+  initialValue: number,
+): [number, (event: React.ChangeEvent<HTMLInputElement>) => void] {
+  const [attribute, setAttribute] = useState(initialValue);
+
+  function onAttributeChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setAttribute(+event.currentTarget.value);
+  }
+
+  return [attribute, onAttributeChange];
+}
 
 export default App;
